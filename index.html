@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hasil Pemesanan Barang</title>
+<style>
+  
+  :root {
+    --bg: #f5fafc;        
+    --ink: #264555;       
+    --muted: #6f8b99;
+    --line: #d3e6ee;
+    --sea: #6fc6e6;       
+    --sea-dark: #78d0f3;
+    --sea-soft: #e4f3f9;
+    --nav: #d6ecf5;       
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #234052;
+      --ink: #dcebf2;
+      --muted: #92abb9;
+      --line: #2d4453;
+      --sea: #6bbddb;
+      --sea-dark: #55a9c9;
+      --sea-soft: #437898;
+      --nav: #1b303d;
+    }
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Helvetica Neue", "Segoe UI", system-ui, sans-serif;
+    font-size: 1rem;
+    line-height: 1.55;
+  }
+
+  
+  nav {
+    background: var(--nav);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    padding: .9rem max(1.5rem, calc((100% - 56rem) / 2));
+  }
+  nav a {
+    color: var(--ink);
+    text-decoration: none;
+    padding-bottom: 2px;
+    border-bottom: 2px solid transparent;
+  }
+  nav a:hover, nav a:focus-visible { border-bottom-color: var(--sea); outline: none; }
+
+  .page {
+    max-width: 56rem;
+    margin: 0 auto;
+    padding: 2.5rem 1.5rem 2rem;
+    display: flex;
+    gap: 3rem;
+    flex-wrap: wrap;
+  }
+
+  .img {
+    width: 14rem; height: 14rem; flex: none;
+    background: var(--sea-soft);
+    border-radius: 50%;
+  }
+
+  .form { flex: 1; min-width: 20rem; }
+
+  .row { display: flex; flex-direction: column; margin-bottom: 1.1rem; }
+  .row > .t { font-size: .85rem; color: var(--muted); margin-bottom: .2rem; }
+  pre { margin: 0; font: inherit; white-space: pre-wrap; }
+
+  form { margin-top: 1.8rem; padding-top: 1.8rem; border-top: 1px solid var(--line); }
+
+  .row input, .row select {
+    width: 100%;
+    font: inherit;
+    color: var(--ink);
+    background: transparent;
+    border: 0;
+    border-bottom: 1px solid var(--line);
+    padding: .4rem 0;
+    border-radius: 0;
+    transition: border-color .15s;
+  }
+  .row select { background: var(--bg); }
+  .row input:focus, .row select:focus {
+    outline: none;
+    border-bottom-color: var(--sea);
+    box-shadow: 0 1px 0 var(--sea);
+  }
+
+  .chk { margin: 0 0 1.4rem; }
+  .chk label { display: block; padding: .15rem 0; }
+  .chk input { accent-color: var(--sea); margin-right: .6rem; }
+
+  button {
+    background: var(--sea);
+    color: #0f2e3d;
+    border: 0;
+    border-radius: 6px;
+    padding: .7rem 1.6rem;
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background .15s;
+  }
+  button:hover, button:focus-visible { background: var(--sea-dark); outline: none; }
+  button:focus-visible { box-shadow: 0 0 0 3px var(--sea-soft), 0 0 0 5px var(--sea); }
+
+  .note { margin: 0 0 .6rem; font-size: .85rem; color: var(--muted); }
+
+  hr { max-width: 56rem; margin: 1rem auto; border: 0; border-top: 1px solid var(--line); }
+  .row textarea {
+  width: 100%;
+  font: inherit;
+  color: var(--ink);
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  padding: .4rem 0;
+  resize: none;
+}
+.row input[readonly], .row textarea[readonly] { cursor: default; }
+.row input:focus, .row textarea:focus { outline: none; }
+</style>
+</head>
+<body>
+<nav>
+  <a href="#">Home</a><a href="#">Register</a><a href="#">Policy</a><a href="#">About</a>
+</nav>
+  
+    <button type="button" onclick="history.back()">Ubah pesanan</button>
+  </div>
+
+  <div class="page">
+    <div class="img" role="img" aria-label="Gambar barang"></div>
+    
+    <div class="form">
+  <form id="orderForm" action="../Praktikum 2 pemesanan barang/" method="GET">
+          <div class="row"><span class="t" for="nama_barang">Nama Barang</span>
+            <input type="text" id="nama_barang" name="nama_barang" readonly></div>
+      
+          <div class="row"><label class="t" for="kategori">Kategori</label>
+            <input type="text" id="kategori" name="kategori" readonly></div>
+      
+          <div class="row"><label class="t" for="jumlah">Jumlah</label>
+            <input type="text" id="jumlah" name="jumlah" readonly></div>
+      
+          <div class="row"><label class="t" for="description">Description</label>
+            <textarea id="description" name="description" rows="4" readonly></textarea></div>
+      
+          <div class="row"><label class="t" for="payment_method">Payment method</label>
+            <input type="text" id="payment_method" name="payment_method" readonly></div>
+      
+          <div class="row"><label class="t" for="nama">Name</label>
+            <input type="text" id="nama" name="nama" readonly></div>
+      
+          <div class="row"><label class="t" for="alamat">Address</label>
+            <input type="text" id="alamat" name="alamat" readonly></div>
+      
+          <div class="row"><label class="t" for="transaction">Transaction amount</label>
+            <input type="text" id="transaction" name="transaction" readonly></div>
+      
+          <div class="chk">
+            <p class="note">Contact information</p>
+            <label><input type="checkbox" id="sendphone" name="sendphone" disabled>Sent to Mobile phone</label>
+            <div class="row" id="row-phone"><label class="t" for="phone">Mobile number</label>
+              <input type="tel" id="phone" name="phone" readonly></div>
+      
+            <label><input type="checkbox" id="sendemail" name="sendemail" disabled>Sent to Email</label>
+            <div class="row" id="row-email"><label class="t" for="email">Email</label>
+              <input type="text" id="email" name="email" readonly></div>
+          </div>
+      
+          <button type="button" onclick="history.back()">Edit order</button>
+          <button type="submit">Confirm</button>
+        </form>
+      </div>
+</div>
+<hr>
+
+<script>
+  var p = new URLSearchParams(location.search);
+
+  ['nama_barang', 'kategori', 'jumlah', 'description',
+   'payment_method', 'nama', 'alamat', 'transaction',
+   'phone', 'email'].forEach(function (key) {
+    var el = document.getElementById(key);
+    if (el) el.value = p.get(key) || '';
+  });
+
+
+  var sendPhone = p.has('sendphone');
+  var sendEmail = p.has('sendemail');
+
+  document.getElementById('sendphone').checked = sendPhone;
+  document.getElementById('sendemail').checked = sendEmail;
+
+  document.getElementById('row-phone').style.display = sendPhone ? '' : 'none';
+  document.getElementById('row-email').style.display = sendEmail ? '' : 'none';
+</script>
+</body>
+</html>
